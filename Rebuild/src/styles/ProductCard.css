@@ -1,0 +1,58 @@
+.product-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #222;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  font-style: normal;
+}
+
+.product-title {
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.product-date,
+.product-price {
+  margin: 0.25rem 0;
+  color: #555;
+}
+
+.favorite-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: aliceblue;
+  color: #000;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.favorite-button:hover {
+  background-color: #5f33ff;
+}
+
+.delete-button{
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: aliceblue;
+  color: #000;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-button:hover{
+    background-color: #5f33ff;
+}
+
+.product-card-section{
+  background-color: white;
+  border-radius: 5px;
+  width: 400px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
