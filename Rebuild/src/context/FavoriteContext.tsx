@@ -8,6 +8,8 @@ import React, {
 interface FavoritesContextType {
   favorites: number[];
   toggleFavorite: (id: number) => void;
+  addToShoppingCart: (id: number) => void;
+  shoppingCart: number[];
 }
 
 const FavoritesContext = createContext<FavoritesContextType | undefined>(
@@ -16,6 +18,7 @@ const FavoritesContext = createContext<FavoritesContextType | undefined>(
 
 export const FavoritesProvider = ({ children }: { children: ReactNode }) => {
   const [favorites, setFavorites] = useState<number[]>([]);
+  const [shoppingCart, setShoppingCart] = useState<number[]>([]);
 
   const toggleFavorite = (id: number) => {
     setFavorites((prev) =>
@@ -23,8 +26,12 @@ export const FavoritesProvider = ({ children }: { children: ReactNode }) => {
     );
   };
 
+  const addToShoppingCart = (id: number) => {
+    setShoppingCart((prev) => prev.includes(id) ? prev.filter((scId) => scId !== id) : [...prev, id])
+  }
+
   return (
-    <FavoritesContext.Provider value={{ favorites, toggleFavorite }}>
+    <FavoritesContext.Provider value={{ favorites, toggleFavorite, addToShoppingCart, shoppingCart }}>
       {children}
     </FavoritesContext.Provider>
   );

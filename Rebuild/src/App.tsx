@@ -5,11 +5,11 @@ import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import AddProduct from "./pages/AddProduct";
 import { useEffect } from "react";
-import { FavoritesProvider, useFavorites } from "./context/FavoriteContext";
 import { useProducts } from "./context/ProductsContext";
+import ShoppingCart from "./pages/ShoppingCart";
 
 function App() {
-  const { setProducts, products, addProduct, deleteProduct } = useProducts();
+  const { setProducts, products} = useProducts();
   useEffect(() => {
     const storedProducts = localStorage.getItem("products");
 
@@ -37,6 +37,9 @@ function App() {
             path="addProduct"
             element={<AddProduct />}
           ></Route>
+          <Route path="/shoppingcart" element={<ShoppingCart />}>
+
+          </Route>
         </Routes>
       </BrowserRouter>
   );

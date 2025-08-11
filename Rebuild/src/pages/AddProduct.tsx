@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import type { AddProductsProps } from "../Interface/AddProductFormProps";
+import { useState } from "react";
 import type { Product } from "../Interface/ProductsInterface";
 import { useProducts } from "../context/ProductsContext";
+import "../styles/AddProduct.css"
 
-function AddProductForm({}: AddProductsProps) {
+function AddProductForm() {
 
   const {addProduct} = useProducts();
 
@@ -46,7 +46,7 @@ function AddProductForm({}: AddProductsProps) {
     <div className="addProduct-form">
       <form onSubmit={handleSubmit}>
         {error && <p style={{ color: "red" }}>{error}</p>}
-        <div>
+        <div className="form-product-name">
           <input
             type="text"
             value={title}
@@ -54,7 +54,7 @@ function AddProductForm({}: AddProductsProps) {
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
-        <div>
+        <div className="form-releasedate">
           <input
             type="text"
             value={releaseDate}
@@ -62,7 +62,7 @@ function AddProductForm({}: AddProductsProps) {
             onChange={(e) => setReleaseDate(e.target.value)}
           />
         </div>
-        <div>
+        <div className="form-price">
           <input
             type="text"
             value={price}

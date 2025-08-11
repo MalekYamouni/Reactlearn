@@ -1,15 +1,13 @@
 import ProductCard from "../components/ProductCard";
-import type { ProductCardProps } from "../Interface/ProductCardProps";
-import AddProduct from "./AddProduct";
-import type { HomeProps } from "../Interface/HomeProps";
-import { useFavorites } from "../context/FavoriteContext";
 import { useProducts } from "../context/ProductsContext";
 
-function Home({
-}: HomeProps) {
+function Home() {
+
+  const { products } = useProducts();
+
   return (
     <div>
-      <ProductCard
+      <ProductCard products={products}
       />
     </div>
   );

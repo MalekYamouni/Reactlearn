@@ -3,12 +3,12 @@ import type { ProductCardProps } from "../Interface/ProductCardProps";
 import { useProducts } from "../context/ProductsContext";
 import { useFavorites } from "../context/FavoriteContext";
 
-function ProductCard({
+function ProductCard({products
 
 }: ProductCardProps) {
 
-  const {products, deleteProduct} = useProducts();
-  const {favorites, toggleFavorite} = useFavorites();
+  const { deleteProduct } = useProducts();
+  const { favorites, shoppingCart, toggleFavorite, addToShoppingCart} = useFavorites();
 
   return (
     <div className="product-card">
@@ -23,14 +23,16 @@ function ProductCard({
             className="favorite-button "
             onClick={() => toggleFavorite(product.id)}
           >
-            {favorites.includes(product.id) ? "❤️" : "❌"}
+            {favorites.includes(product.id) ? "❤️" : "🤍"}
           </button>
+          <button className="cart-button" onClick={ () => addToShoppingCart(product.id)}>{shoppingCart.includes(product.id) ? "🔙":"🛒"}</button>
           <button
             className="delete-button"
             onClick={() => deleteProduct(product.id)}
           >
             🗑️
           </button>
+
         </div>
       ))}
     </div>

@@ -39,7 +39,7 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return(
-    <ProductContext.Provider value={{products,setProducts, addProduct, deleteProduct}}>
+    <ProductContext.Provider value={{products ,setProducts, addProduct, deleteProduct}}>
       {children}
     </ProductContext.Provider>
   )

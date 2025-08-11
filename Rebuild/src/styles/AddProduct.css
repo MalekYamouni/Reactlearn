@@ -1,10 +1,42 @@
-.form{
-border: 1px solid #ccc;
+.addProduct-form {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid #ddd;
   border-radius: 8px;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  background-color: #222;
-  transition: all 0.2s ease-in-out;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  font-style: normal;
+  background-color: #fafafa;
+}
+
+.addProduct-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.addProduct-form input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.addProduct-form input:focus {
+  outline: none;
+  border-color: #0077ff;
+}
+
+.addProduct-form button {
+  padding: 12px;
+  font-size: 1.1rem;
+  background-color: #0077ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.addProduct-form button:hover {
+  background-color: #005fcc;
 }

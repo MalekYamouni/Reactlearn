@@ -1,9 +1,8 @@
 import ProductCard from "../components/ProductCard";
 import { useFavorites } from "../context/FavoriteContext";
 import { useProducts } from "../context/ProductsContext";
-import type { FavoriteProps } from "../Interface/FavoriteProps";
 
-function Favorites({ }: FavoriteProps) {
+function Favorites() {
 
   const {favorites} = useFavorites();
   const {products} = useProducts();
@@ -17,7 +16,7 @@ function Favorites({ }: FavoriteProps) {
       {favoriteProducts.length === 0 ? (
         <p>Sie haben noch keine Favoriten...</p>
       ) : (
-        <ProductCard
+        <ProductCard products={favoriteProducts}
         />
       )}
     </div>

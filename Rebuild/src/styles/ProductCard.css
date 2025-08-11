@@ -1,58 +1,113 @@
+/* --- Farbvariablen zentral definieren für einfache Anpassung --- */
+:root {
+  --primary-color: #5f33ff;        /* Hauptfarbe für Hover etc. */
+  --primary-light: #a08cff;        /* Hellere Variante */
+  --bg-color: #222;                /* Hintergrund der Produktkarte */
+  --text-color: #000;              /* Standard Textfarbe */
+  --text-muted: #555;              /* Für sekundäre Texte */
+  --card-bg: #fff;                 /* Hintergrund der Produktabschnitte */
+  --button-bg: aliceblue;          /* Button Hintergrund */
+  --button-text-hover: #fff;       /* Button Textfarbe beim Hover */
+}
+
+/* --- Gesamte Produktkarte --- */
 .product-card {
+  background-color: var(--bg-color);
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 1rem;
   margin-bottom: 1rem;
-  background-color: #222;
-  transition: all 0.2s ease-in-out;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Mehr Tiefe */
   font-style: normal;
+  color: var(--text-color);
+  max-width: 420px;
+  transition: box-shadow 0.3s ease;
 }
 
+.product-card:hover {
+  box-shadow: 0 8px 20px rgba(95, 51, 255, 0.3); /* Schatten bei Hover */
+}
+
+/* --- Einzelner Produkt-Abschnitt --- */
+.product-card-section {
+  background-color: var(--card-bg);
+  border-radius: 5px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* --- Titel --- */
 .product-title {
-  font-size: 2rem;
-  font-style: normal;
-  font-weight: bold;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
 }
 
+/* --- Veröffentlichung & Preis --- */
 .product-date,
 .product-price {
-  margin: 0.25rem 0;
-  color: #555;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 1rem;
 }
 
-.favorite-button {
+/* --- Button-Gruppe, damit Buttons schön nebeneinander sind --- */
+.button-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* --- Alle Buttons haben gleiche Grund-Styles --- */
+.favorite-button,
+.delete-button,
+.cart-button {
   padding: 0.5rem 1rem;
   border: none;
-  background-color: aliceblue;
-  color: #000;
+  background-color: var(--button-bg);
+  color: var(--text-color);
   font-weight: bold;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  user-select: none;
 }
 
-.favorite-button:hover {
-  background-color: #5f33ff;
+/* --- Hover-Effekt bei allen Buttons --- */
+.favorite-button:hover,
+.delete-button:hover,
+.cart-button:hover {
+  background-color: var(--primary-color);
+  color: var(--button-text-hover);
+  box-shadow: 0 0 8px var(--primary-color);
 }
 
-.delete-button{
-  padding: 0.5rem 1rem;
-  border: none;
-  background-color: aliceblue;
-  color: #000;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-}
+/* --- Responsive Anpassung für kleinere Bildschirme --- */
+@media (max-width: 480px) {
+  .product-card {
+    max-width: 100%;
+    padding: 0.75rem;
+  }
 
-.delete-button:hover{
-    background-color: #5f33ff;
-}
+  .product-card-section {
+    padding: 0.5rem;
+  }
 
-.product-card-section{
-  background-color: white;
-  border-radius: 5px;
-  width: 400px;
-  padding: 0.5rem 1rem;
-  margin-bottom: 1rem;
+  .product-title {
+    font-size: 1.5rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .favorite-button,
+  .delete-button,
+  .cart-button {
+    width: 100%;
+  }
 }
